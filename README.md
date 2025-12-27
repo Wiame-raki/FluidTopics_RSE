@@ -79,25 +79,8 @@ Ces constantes sont définies dans le script `measure_simulation.py` et peuvent 
 | `OUTPUT_SIZE_CHARS` | 350 | Taille moyenne de la réponse générée par l'IA. |
 | `CHATBOT_CONTEXT` | 3 | Nombre moyen de topics injectés dans le contexte du Chatbot. |
 
-### 2. Règles de Calcul Volumétrique
 
-* **Profil Chatbot :**
-* 
-* 
-
-
-* **Profil Completion :**
-* 
-* 
-
-
-* **Profil Traduction :**
-* 
-*  (Ratio 1:1)
-
-
-
-### 3. Modèle Énergétique (État de l'Art 2025)
+### 2. Modèle Énergétique (État de l'Art 2025)
 
 * **Pour les LLM (GenAI) :** Utilisation d'un modèle hybride combinant coût par token et coût temporel (latence).
 
