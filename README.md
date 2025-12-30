@@ -26,6 +26,8 @@ FluidTopics_RSE/
 │
 ├── measure_simulation.py                      # Script principal de calcul 
 │
+├── demo.py                                    # Pour une approche plus interactive
+│
 ├── requirements.txt                           # Liste des dépendances Python
 └── README.md                                  # Documentation du projet
 
