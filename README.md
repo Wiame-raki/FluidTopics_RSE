@@ -19,19 +19,23 @@ Dans une architecture distribuée de type **"Black Box"** (où les calculs sont 
 FluidTopics_RSE/
 │
 ├── data/
-│   └── 2025-FluidTopics-daily-analytics.yaml  # Fichier source (Logs d'usage)
+│   └── 2025-FluidTopics-daily-analytics.yaml   # Fichier source (Logs d'usage)
 │
 ├── output/
-│   └── rapport_carbone_simule.csv             # Résultat généré par le script
+│   ├── rapport_carbone_simule.csv              # Résultat généré par le script
+│   └── graphs/                                # Graphiques générés automatiquement
+│  
 │
-├── measure_simulation.py                      # Script principal de calcul 
+├── measure_simulation.py                       # Script principal de calcul 
+|
+|
+├── graphs.py                                  # Script de génération des graphiques d’empreinte carbone
 │
 ├── demo.py                                    # Pour une approche plus interactive
 │
 ├── requirements.txt                           # Liste des dépendances Python
 └── README.md                                  # Documentation du projet
 
-```
 
 
 ## ⚙️ Installation
@@ -103,6 +107,64 @@ Le fichier de sortie (`rapport_carbone_simule.csv`) contient les colonnes suivan
 * `simulated_tokens` : Volume de tokens estimé par la simulation.
 * `energy_kwh` : Consommation électrique totale estimée (incluant PUE 1.2).
 * `carbon_gCO2` : Impact carbone basé sur un mix global (475 gCO2/kWh).
+
+
+
+## 📈 Visualisation des Résultats Graphiques
+
+En complément du fichier CSV généré, le projet produit automatiquement plusieurs graphes analytiques permettant d’interpréter visuellement les usages et l’impact carbone.
+
+Les graphiques sont enregistrés dans le dossier output/ et couvrent deux dimensions :
+
+🔹 **1. Graphes de volumétrie (Dialogues Chatbots)**
+
+Ces graphes sont basés uniquement sur le nombre d’appels API chatbot :
+
+Nuage de points mensuel
+
+Distribution journalière du nombre de dialogues par mois.
+Permet d’identifier la variabilité quotidienne et les jours de forte activité.
+
+Courbe mensuelle
+
+Total mensuel des dialogues.
+Permet d’observer la tendance globale d’usage du chatbot.
+
+🔹 **2. Graphes d’empreinte carbone**
+
+Pour chaque profil (Chatbots, Completions, Translations) ainsi que pour le TOTAL GENAI, deux graphes sont générés :
+
+Nuage de points mensuel
+
+Chaque point représente l’empreinte carbone d’un jour, regroupé par mois.
+Permet d’analyser la dispersion quotidienne et les pics d’impact.
+
+Courbe mensuelle
+
+Somme mensuelle de l’empreinte carbone.
+Permet d’observer l’évolution temporelle de l’impact environnemental.
+
+**🔹 3. TOTAL GENAI**
+
+Le graphe TOTAL GENAI correspond à la somme des impacts carbone :
+
+Chatbots + Completions + Translations
+
+Il représente l’empreinte carbone globale des usages d’IA sur la plateforme.
+
+### 🎯 Objectif des visualisations
+
+Ces graphes permettent de :
+
+Comparer volumétrie et impact carbone.
+
+Identifier les mois critiques.
+
+Observer la variabilité quotidienne.
+
+Mettre en évidence la dominance du chatbot dans l’empreinte globale.
+
+Servir de support décisionnel pour une démarche RSE.
 
 
 
